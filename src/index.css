@@ -15,3 +15,15 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+/* NAVIGATION */
+.nav-links {
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+
+.nav-links:hover {
+  color: rgb(53, 183, 206);
+}
