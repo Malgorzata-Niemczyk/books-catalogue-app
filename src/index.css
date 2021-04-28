@@ -21,9 +21,8 @@ body {
   padding: 10px;
   text-decoration: none;
   color: white;
-  transition: color 0.3s;
 }
 
 .nav-links:hover {
-  color: rgb(53, 183, 206);
+  border-bottom: 1px solid white;
 }

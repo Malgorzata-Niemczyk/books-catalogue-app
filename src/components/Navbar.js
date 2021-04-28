@@ -5,9 +5,9 @@ const NavList = styled.nav`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    padding: 15px;
+    padding: 20px;
     list-style-type: none;
-    background-color: #323131;
+    background-color: #900C3F;
 `
 
 const NavListItem = styled.li`
