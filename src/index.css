@@ -6,3 +6,12 @@
   padding: 0;
   font-family: 'Montserrat', sans-serif;
 }
+
+body {
+  min-height: 100vh;
+  background-color: rgb(34, 34, 34);
+  background-image: url('./assets/img/library.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
