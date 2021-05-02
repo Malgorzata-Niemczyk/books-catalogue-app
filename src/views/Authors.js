@@ -23,10 +23,33 @@ const Authors = () => {
         fetchAuthors()
     }, [dispatch]);
 
-
     return ( 
         <Container>
             <h2>Autorzy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nr</th>
+                        <th>Nazwisko</th>
+                        <th>Imię</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {state.authors.map((author, index) => {
+                        return (
+                            <tr key={author.id}>
+                                <td>{index + 1}</td>
+                                <td>{author.lastName}</td>
+                                <td>{author.firstName}</td>
+                                <td><button>Edytuj</button></td>
+                                <td><button>Usuń</button></td>
+                            </tr>
+                        )
+                    } 
+                    )}
+                </tbody>
+            </table>
+            <button>Dodaj</button>
         </Container>
     );
 }
