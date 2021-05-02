@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Authors from './views/Authors';
 import Publishers from './views/Publishers';
 import Books from './views/Books';
+import AddAuthor from './views/forms/AddAuthor';
 
 function App() {
   return (
@@ -15,8 +16,11 @@ function App() {
           <Route exact path="/">
             <Home/>
           </Route>
-          <Route path="/autorzy">
+          <Route exact path="/autorzy">
             <Authors/>
+          </Route>
+          <Route path="/autorzy/add-author">
+            <AddAuthor/>
           </Route>
           <Route path="/wydawnictwa">
             <Publishers/>

@@ -1,5 +1,7 @@
 import { useContext } from 'react';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import { Container } from '../components/Home';
 import { AuthorsContext } from '../store/AuthorsStore';
 import { LoaderMessage, AddButton, RemoveButton, EditButton, Table, TableHead, TableRow, TableData } from '../styled-components/styled-table';
@@ -57,7 +59,11 @@ const Authors = () => {
                     )}
                 </tbody>
             </Table>
-            <AddButton>Dodaj</AddButton>
+            <Link to="/autorzy/add-author">
+                <AddButton>
+                    Dodaj
+                </AddButton>
+            </Link>
         </Container>
     );
 }
