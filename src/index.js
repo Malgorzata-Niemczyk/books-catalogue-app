@@ -4,9 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import AuthorsStore from './store/AuthorsStore';
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AuthorsStore>
+      <App />
+    </AuthorsStore>
   </React.StrictMode>,
   document.getElementById('root')
 );
