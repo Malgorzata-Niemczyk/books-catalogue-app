@@ -9,7 +9,7 @@ const LoaderMessage = styled.p`
 `
 
 const AddButton = styled.button`
-    margin-top: 20px;
+    margin-top: 25px;
     padding: 8px 20px;
     color: white;
     text-transform: uppercase;
@@ -37,6 +37,24 @@ const EditButton = styled.button`
     border-radius: 5px;
     background-color: #3386ff;
     cursor: pointer;
+`
+
+const Table = styled.table`
+    border-collapse: collapse;
+    margin-top: 20px;
+`
+
+const TableHead = styled.th`
+    padding-bottom: 10px;
+`
+
+const TableRow = styled.tr`
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+`
+
+const TableData = styled.td`
+    padding: 10px;
 `
 
 const Authors = () => {
@@ -69,29 +87,29 @@ const Authors = () => {
             <h2>Autorzy</h2>
             { isLoading && <LoaderMessage>Ładowanie wyników...</LoaderMessage> }
             { state.error ? <LoaderMessage>{ errorMessage }</LoaderMessage> : null }
-            <table>
+            <Table>
                 <thead>
                     <tr>
-                        <th>Nr</th>
-                        <th>Nazwisko</th>
-                        <th>Imię</th>
+                        <TableHead>Nr</TableHead>
+                        <TableHead>Nazwisko</TableHead>
+                        <TableHead>Imię</TableHead>
                     </tr>
                 </thead>
                 <tbody>
                     {state.authors.map((author, index) => {
                         return (
-                            <tr key={author.id}>
-                                <td>{index + 1}.</td>
-                                <td>{author.lastName}</td>
-                                <td>{author.firstName}</td>
-                                <td><EditButton>Edytuj</EditButton></td>
-                                <td><RemoveButton>Usuń</RemoveButton></td>
-                            </tr>
+                            <TableRow key={author.id}>
+                                <TableData>{index + 1}.</TableData>
+                                <TableData>{author.lastName}</TableData>
+                                <TableData>{author.firstName}</TableData>
+                                <TableData><EditButton>Edytuj</EditButton></TableData>
+                                <TableData><RemoveButton>Usuń</RemoveButton></TableData>
+                            </TableRow>
                         )
                     } 
                     )}
                 </tbody>
-            </table>
+            </Table>
             <AddButton>Dodaj</AddButton>
         </Container>
     );
