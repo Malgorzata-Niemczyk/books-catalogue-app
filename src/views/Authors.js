@@ -7,8 +7,6 @@ import { AuthorsContext } from '../store/AuthorsStore';
 import { LoaderMessage, AddButton, RemoveButton, EditButton, Table, TableHead, TableRow, TableData } from '../styled-components/styled-table';
 
 const Authors = () => {
-    // const id = new URLSearchParams(window.location.search).get('id');
-
     const [state, dispatch] = useContext(AuthorsContext);
     const [isLoading, setIsLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState('');
