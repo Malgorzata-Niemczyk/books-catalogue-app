@@ -1,27 +1,21 @@
-// ACTIONS
-const SET_AUTHORS = "SET_AUTHORS";
-const ADD_AUTHOR = "ADD_AUTHORS";
-const REMOVE_AUTHOR = "REMOVE_AUTHOR";
-const SET_ERROR = "SET_ERROR";
-
 const AuthorsReducer = (state, action) => {
     switch (action.type) {
-        case SET_AUTHORS:
+        case 'SET_AUTHORS':
             return {
                 ...state,
                 authors: action.payload
             };
-        case ADD_AUTHOR:
+        case 'ADD_AUTHOR':
             return {
                 ...state,
                 authors: state.authors.concat(action.payload)
             };
-        case REMOVE_AUTHOR:
+        case 'REMOVE_AUTHOR':
             return {
                 ...state,
                 authors: state.authors.filter(author => author.id !== action.payload)
             };
-        case SET_ERROR:
+        case 'SET_ERROR':
             return {
                 ...state,
                 error: action.payload
