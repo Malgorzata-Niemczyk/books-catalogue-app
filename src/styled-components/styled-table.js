@@ -5,52 +5,57 @@ const LoaderMessage = styled.p`
 `
 
 const AddButton = styled.button`
-margin-top: 25px;
-padding: 8px 20px;
-color: white;
-text-transform: uppercase;
-border: none;
-border-radius: 20px;
-background-color: #1cdd2b;
-cursor: pointer;
+    margin-top: 25px;
+    padding: 8px 20px;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 20px;
+    background-color: #1cdd2b;
+    cursor: pointer;
 `
 
 const RemoveButton = styled.button`
-padding: 8px 15px;
-color: white;
-text-transform: uppercase;
-border: none;
-border-radius: 5px;
-background-color: #ff335b;
-cursor: pointer;
+    padding: 8px 15px;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff335b;
+    cursor: pointer;
 `
 
 const EditButton = styled.button`
-padding: 8px 15px;
-color: white;
-text-transform: uppercase;
-border: none;
-border-radius: 5px;
-background-color: #3386ff;
-cursor: pointer;
+    padding: 8px 15px;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    background-color: #3386ff;
+    cursor: pointer;
 `
 
 const Table = styled.table`
-border-collapse: collapse;
-margin-top: 20px;
+    border-collapse: collapse;
+    margin-top: 20px;
 `
 
 const TableHead = styled.th`
-padding-bottom: 10px;
+    padding-bottom: 10px;
+    padding-right: 3px;
 `
 
 const TableRow = styled.tr`
-border-top: 1px solid black;
-border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 `
 
 const TableData = styled.td`
-padding: 10px;
+    padding: 10px;
+
+    @media screen and (max-width: 450px) {
+        padding: 10px 3px;
+    }
 `
 
 export { LoaderMessage, AddButton, RemoveButton, EditButton, Table, TableHead, TableRow, TableData };
