@@ -7,6 +7,8 @@ import { AuthorsContext } from '../store/AuthorsStore';
 import { LoaderMessage, AddButton, RemoveButton, EditButton, Table, TableHead, TableRow, TableData } from '../styled-components/styled-table';
 
 const Authors = () => {
+    // const id = new URLSearchParams(window.location.search).get('id');
+
     const [state, dispatch] = useContext(AuthorsContext);
     const [isLoading, setIsLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState('');
@@ -31,6 +33,14 @@ const Authors = () => {
         fetchAuthors()
     }, [dispatch]);
 
+    const handleRemoveAuthor = async (id) => {
+        await fetch(`http://139.162.147.107:3493/authors/${id}`, {
+            method: "DELETE"
+        }).then(() => {
+            dispatch({type: 'REMOVE_AUTHOR', payload: id})
+        })
+    }
+
     return ( 
         <Container>
             <h2>Autorzy</h2>
@@ -52,10 +62,9 @@ const Authors = () => {
                                 <TableData>{author.lastName}</TableData>
                                 <TableData>{author.firstName}</TableData>
                                 <TableData><EditButton>Edytuj</EditButton></TableData>
-                                <TableData><RemoveButton>Usuń</RemoveButton></TableData>
+                                <TableData><RemoveButton onClick={() => handleRemoveAuthor(author.id)}>Usuń</RemoveButton></TableData>
                             </TableRow>
-                        )
-                    } 
+                        )} 
                     )}
                 </tbody>
             </Table>
