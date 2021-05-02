@@ -10,7 +10,7 @@ const AddAuthor = () => {
     const history = useHistory();
     const [lastName, setLastName] = useState('');
     const [firstName, setFirstName] = useState('');
-    const [state, dispatch] = useContext(AuthorsContext);
+    const [dispatch] = useContext(AuthorsContext);
     const url = 'http://139.162.147.107:3493/authors';
 
     const handleSubmit = async (event) => {
