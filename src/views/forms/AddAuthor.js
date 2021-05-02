@@ -13,7 +13,7 @@ const AddAuthor = () => {
     const [state, dispatch] = useContext(AuthorsContext);
     const url = 'http://139.162.147.107:3493/authors';
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         let newAuthor = {
@@ -21,7 +21,7 @@ const AddAuthor = () => {
             firstName
         };
 
-        fetch(url, {
+        await fetch(url, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(newAuthor)
