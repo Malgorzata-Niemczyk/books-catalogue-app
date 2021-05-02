@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const HomeContainer = styled.main`
+const Container = styled.main`
         display: flex;
         justify-content: center;
         margin: 55px auto;
@@ -11,12 +11,13 @@ const HomeContainer = styled.main`
         box-shadow: 0 0 30px black;
         background-color: white;
     `
+export { Container };
 
 const Home = () => {
     return ( 
-        <HomeContainer>
+        <Container>
             <h1>Witaj w Naszym Katalogu Książek!</h1>
-        </HomeContainer>
+        </Container>
      );
 }
  
