@@ -59,7 +59,7 @@ const Authors = () => {
                     )}
                 </tbody>
             </Table>
-            <Link to="/autorzy/add-author">
+            <Link to="/autorzy/dodaj-nowego-autora">
                 <AddButton>
                     Dodaj
                 </AddButton>
