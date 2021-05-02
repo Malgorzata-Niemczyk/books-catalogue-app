@@ -12,6 +12,10 @@ const Container = styled.main`
         border-radius: 5px;
         box-shadow: 0 0 30px black;
         background-color: white;
+
+        @media screen and (max-width: 615px) {
+            max-width: 90%;
+        }
     `
 export { Container };
 
