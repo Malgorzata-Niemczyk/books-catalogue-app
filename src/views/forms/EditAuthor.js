@@ -27,12 +27,36 @@ const EditAuthor = () => {
         fetchAuthorDetails()
     }, [id]);
 
+    const editAuthorDetails = async (editedAuthor) => {
+        await fetch(`http://139.162.147.107:3493/authors/${id}`, {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(editedAuthor)
+        }).then(() => {
+            console.log('New author added');
+            dispatch({ type: 'ADD_AUTHOR', payload: editedAuthor});
+            history.push('/autorzy');
+        }).catch(error => console.log(error))
+    }
 
+    const handleSave = (event) => {
+        event.preventDefault();
+
+        let editedAuthor = {
+            lastName,
+            firstName
+        };
+
+        editAuthorDetails(editedAuthor);
+
+        setLastName('');
+        setFirstName('');
+    }
     
     return ( 
         <Container>
             <h2>Edytuj Dane Autora</h2>
-            <Form>
+            <Form onSubmit={handleSave}>
                 <Label htmlFor="lastName">Nazwisko:</Label>
                 <Input 
                     type="text"
