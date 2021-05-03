@@ -13,6 +13,10 @@ const NavList = styled.nav`
 const NavListItem = styled.li`
     padding: 5px;
     text-transform: uppercase;
+    
+    @media screen and (max-width: 585px) {
+        margin-bottom: 10px;
+    }
 `
 
 const Navbar = () => {
