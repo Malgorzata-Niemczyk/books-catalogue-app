@@ -14,15 +14,20 @@ const EditAuthor = () => {
     const [firstName, setfirstName] = useState('');
     const [state, dispatch] = useContext(AuthorsContext);
 
-    
     useEffect(() => {
-       fetch(`http://139.162.147.107:3493/authors/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                setlastName(data.lastName);
-                setfirstName(data.firstName);
+        const fetchAuthorDetails = async () => {
+            await fetch(`http://139.162.147.107:3493/authors/${id}`)
+                .then(res => res.json())
+                .then(data => {
+                    setlastName(data.lastName);
+                    setfirstName(data.firstName);
             })
+        }
+
+        fetchAuthorDetails()
     }, [id]);
+
+
     
     return ( 
         <Container>
