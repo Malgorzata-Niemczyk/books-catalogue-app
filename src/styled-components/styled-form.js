@@ -44,4 +44,9 @@ const ButtonsWrapper = styled.div`
     gap: 10px;
 `
 
-export { Form, Label, Input, SaveButton, BackToListButton, ButtonsWrapper }
+const Select = styled.select`
+    padding: 5px 10px;
+    min-width: 250px;
+`
+
+export { Form, Label, Input, SaveButton, BackToListButton, ButtonsWrapper, Select }
