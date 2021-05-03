@@ -28,7 +28,7 @@ const AddPublishers = () => {
             body: JSON.stringify(newPublisher)
         }).then(() => {
             console.log('New publisher added');
-            dispatch({ type: 'ADD_PUBLISHER', payload: newPublisher});
+            dispatch({ type: 'ADD_PUBLISHERS', payload: newPublisher});
             history.push('/wydawnictwa');
         })
         
