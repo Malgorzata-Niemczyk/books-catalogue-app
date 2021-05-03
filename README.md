@@ -1,9 +1,23 @@
 # Books Catalogue App
 
 ## Tech Stack:
-- ReactJS
+- ReactJS (Hooks, Context API, React Router)
+- JavaScript
 - Styled-Components
+- Bookstore API: http://139.162.147.107:3493/
 
+
+Home page view
+
+![](./screenshots/home-page.PNG)
+
+Authors list with the options to add, remove and edit an item
+
+![](./screenshots/authors-list.PNG)
+
+Form view for adding a new author
+
+![](./screenshots/add-new-item-form.PNG)
 
 ## Setup
 
