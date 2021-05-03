@@ -10,7 +10,7 @@ const AddAuthor = () => {
     const history = useHistory();
     const [lastName, setLastName] = useState('');
     const [firstName, setFirstName] = useState('');
-    const [dispatch] = useContext(AuthorsContext);
+    const [state, dispatch] = useContext(AuthorsContext);
     const url = 'http://139.162.147.107:3493/authors';
 
     const handleSubmit = async (event) => {
@@ -29,7 +29,6 @@ const AddAuthor = () => {
             console.log('New author added');
             dispatch({ type: 'ADD_AUTHOR', payload: newAuthor});
             history.push('/autorzy');
-
         })
 
         setLastName('');
