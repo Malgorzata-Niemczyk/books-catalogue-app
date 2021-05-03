@@ -7,6 +7,7 @@ import Books from './views/Books';
 import AddAuthor from './views/forms/AddAuthor';
 import EditAuthor from './views/forms/EditAuthor';
 import EditPublishers from './views/forms/EditPublishers';
+import AddPublishers from './views/forms/AddPublishers';
 
 function App() {
   return (
@@ -27,8 +28,11 @@ function App() {
           <Route exact path="/autorzy/:id/etytuj-dane-autora">
             <EditAuthor/>
           </Route>
-          <Route path="/wydawnictwa">
+          <Route exact path="/wydawnictwa">
             <Publishers/>
+          </Route>
+          <Route path="/wydawnictwa/dodaj-nowe-wydawnictwo">
+            <AddPublishers/>
           </Route>
           <Route exact path="/wydawnictwa/:id/etytuj-dane-wydawnictwa">
             <EditPublishers/>

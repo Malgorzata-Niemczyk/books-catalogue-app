@@ -64,7 +64,7 @@ const Publishers = () => {
                     )}
                 </tbody>
             </Table>
-            <Link to="/autorzy/dodaj-nowego-autora">
+            <Link to="/wydawnictwa/dodaj-nowe-wydawnictwo">
                 <AddButton>
                     Dodaj
                 </AddButton>
