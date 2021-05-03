@@ -31,6 +31,14 @@ const Publishers = () => {
         fetchPublishers()
     }, [dispatch]);
 
+    const handleRemovePublisher = async (id) => {
+        await fetch(`http://139.162.147.107:3493/publishers/${id}`, {
+            method: "DELETE"
+        }).then(() => {
+            dispatch({type: 'REMOVE_PUBLISHERS', payload: id})
+        })
+    }
+
     return ( 
         <Container>
             <h2>Wydawnictwa</h2>
@@ -58,7 +66,9 @@ const Publishers = () => {
                                         </EditButton>
                                     </Link>
                                 </TableData>
-                                <TableData><RemoveButton>Usuń</RemoveButton></TableData>
+                                <TableData>
+                                    <RemoveButton onClick={() => handleRemovePublisher(publisher.id)}>Usuń</RemoveButton>
+                                </TableData>
                             </TableRow>
                         )} 
                     )}
