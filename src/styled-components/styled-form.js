@@ -13,8 +13,10 @@ const Label = styled.label`
 `
 
 const Input = styled.input`
-    padding: 5px 10px
-    `
+    padding: 5px 10px;
+    min-width: 250px;
+`
+
 const SaveButton = styled.button`
     margin-top: 25px;
     padding: 8px 20px;
