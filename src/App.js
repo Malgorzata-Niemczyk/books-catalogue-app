@@ -8,6 +8,8 @@ import AddAuthor from './views/forms/AddAuthor';
 import EditAuthor from './views/forms/EditAuthor';
 import EditPublishers from './views/forms/EditPublishers';
 import AddPublishers from './views/forms/AddPublishers';
+import AddBook from './views/forms/AddBook';
+import EditBook from './views/forms/EditBook';
 
 function App() {
   return (
@@ -37,8 +39,14 @@ function App() {
           <Route exact path="/wydawnictwa/:id/etytuj-dane-wydawnictwa">
             <EditPublishers/>
           </Route>
-          <Route path="/ksiazki">
+          <Route exact path="/ksiazki">
             <Books/>
+          </Route>
+          <Route path="/ksiazki/dodaj-nowa-ksiazke">
+            <AddBook/>
+          </Route>
+          <Route exact path="/ksiazki/:id/etytuj-dane-ksiazki">
+            <EditBook/>
           </Route>
         </Switch>
         </div>
