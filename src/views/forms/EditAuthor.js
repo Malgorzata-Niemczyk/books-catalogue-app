@@ -10,7 +10,8 @@ import { AuthorsContext } from '../../store/AuthorsStore';
 const EditAuthor = () => {
     const history = useHistory();
     const { id } = useParams();
-    const [authorData, setAuthorData] = useState(null);
+    const [lastName, setlastName] = useState('');
+    const [firstName, setfirstName] = useState('');
     const [state, dispatch] = useContext(AuthorsContext);
 
     
@@ -18,7 +19,8 @@ const EditAuthor = () => {
        fetch(`http://139.162.147.107:3493/authors/${id}`)
             .then(res => res.json())
             .then(data => {
-                setAuthorData(data);
+                setlastName(data.lastName);
+                setfirstName(data.firstName);
             })
     }, [id]);
     
@@ -29,12 +31,14 @@ const EditAuthor = () => {
                 <Label htmlFor="lastName">Nazwisko:</Label>
                 <Input 
                     type="text"
+                    value={lastName}
                     placeholder="Wpisz nowe nazwisko autora" 
                     required 
                 />
                 <Label htmlFor="firstName">Imię:</Label>
                 <Input 
                     type="text"
+                    value={firstName}
                     placeholder="Wpisz nowe imię autora" 
                     required 
                 />
