@@ -6,14 +6,17 @@ import reportWebVitals from './reportWebVitals';
 
 import AuthorsStore from './store/AuthorsStore';
 import PublishersStore from './store/PublishersStore';
+import BooksStore from './store/BooksStore';
 
 ReactDOM.render(
   <React.StrictMode>
+    <BooksStore>
     <PublishersStore>
     <AuthorsStore>
       <App />
     </AuthorsStore>
     </PublishersStore>
+    </BooksStore>
   </React.StrictMode>,
   document.getElementById('root')
 );
