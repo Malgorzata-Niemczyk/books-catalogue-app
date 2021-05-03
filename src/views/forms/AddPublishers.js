@@ -31,7 +31,7 @@ const AddPublishers = () => {
             dispatch({ type: 'ADD_PUBLISHERS', payload: newPublisher});
             history.push('/wydawnictwa');
         })
-        
+
         setName('');
         setEstablishmentYear('');
     };
@@ -52,7 +52,7 @@ const AddPublishers = () => {
                 <Input 
                     type="number"
                     value={establishmentYear}
-                    onChange={event => setEstablishmentYear(event.target.value)}
+                    onChange={event => setEstablishmentYear(Number(event.target.value))}
                     placeholder="Wpisz rok założenia" 
                     required 
                 />
