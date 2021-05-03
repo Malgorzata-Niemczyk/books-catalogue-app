@@ -15,9 +15,9 @@ Authors list with the options to add, remove and edit an item
 
 ![](./screenshots/authors-list.PNG)
 
-Form view for adding a new author
+Form view for editing author's data
 
-![](./screenshots/add-new-item-form.PNG)
+![](./screenshots/edit-form.PNG)
 
 ## Setup
 
