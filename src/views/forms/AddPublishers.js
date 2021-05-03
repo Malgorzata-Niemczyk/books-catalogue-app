@@ -10,7 +10,7 @@ import { AddButton } from '../../styled-components/styled-table';
 const AddPublishers = () => {
     const history = useHistory();
     const [name, setName] = useState('');
-    const [establishmentYear, setEstablishmentYear] = useState();
+    const [establishmentYear, setEstablishmentYear] = useState('');
     const [state, dispatch] = useContext(PublishersContext);
     const url = 'http://139.162.147.107:3493/publishers';
 
