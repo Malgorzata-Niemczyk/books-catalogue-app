@@ -5,12 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import AuthorsStore from './store/AuthorsStore';
+import PublishersStore from './store/PublishersStore';
 
 ReactDOM.render(
   <React.StrictMode>
+    <PublishersStore>
     <AuthorsStore>
       <App />
     </AuthorsStore>
+    </PublishersStore>
   </React.StrictMode>,
   document.getElementById('root')
 );
