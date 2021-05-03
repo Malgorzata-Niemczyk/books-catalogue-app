@@ -10,7 +10,6 @@ const Authors = () => {
     const [state, dispatch] = useContext(AuthorsContext);
     const [isLoading, setIsLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState('');
-    const [editId, setEditId] = useState(null);
     const url = 'http://139.162.147.107:3493/authors';
 
     useEffect(() => {
@@ -40,11 +39,6 @@ const Authors = () => {
         })
     }
 
-    const handleEditAuthor = (id) => {
-        console.log(id);
-        setEditId(id);
-    }
-
     return ( 
         <Container>
             <h2>Autorzy</h2>
@@ -66,8 +60,8 @@ const Authors = () => {
                                 <TableData>{author.lastName}</TableData>
                                 <TableData>{author.firstName}</TableData>
                                 <TableData>
-                                    <Link to="/autorzy/etytuj-dane-autora">
-                                        <EditButton onClick={() => handleEditAuthor(author.id)}>
+                                    <Link to={`/autorzy/${author.id}/etytuj-dane-autora/`}>
+                                        <EditButton>
                                             Edytuj
                                         </EditButton>
                                     </Link>
