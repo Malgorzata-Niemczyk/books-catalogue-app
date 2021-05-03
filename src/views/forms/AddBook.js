@@ -16,7 +16,7 @@ const AddBook = () => {
     // const [publisherId, setPublisherId] = useState('');
 
     const [state, dispatch] = useContext(BooksContext);
-    const url = 'http://139.162.147.107:3493/publishers';
+    const url = 'http://139.162.147.107:3493/books';
 
     const handleSubmit = async (event) => {
         event.preventDefault();
