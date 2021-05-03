@@ -23,7 +23,7 @@ function App() {
           <Route path="/autorzy/dodaj-nowego-autora">
             <AddAuthor/>
           </Route>
-          <Route path="/autorzy/etytuj-dane-autora">
+          <Route exact path="/autorzy/:id/etytuj-dane-autora">
             <EditAuthor/>
           </Route>
           <Route path="/wydawnictwa">
