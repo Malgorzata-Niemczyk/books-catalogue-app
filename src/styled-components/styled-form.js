@@ -14,6 +14,32 @@ const Label = styled.label`
 
 const Input = styled.input`
     padding: 5px 10px
+    `
+const SaveButton = styled.button`
+    margin-top: 25px;
+    padding: 8px 20px;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 20px;
+    background-color: #C4DF76;
+    cursor: pointer; 
 `
 
-export { Form, Label, Input }
+const BackToListButton = styled.button`
+    margin-top: 25px;
+    padding: 8px 20px;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 20px;
+    background-color: #1a3668;
+    cursor: pointer;
+`
+
+const ButtonsWrapper = styled.div`
+    display: flex; 
+    gap: 10px;
+`
+
+export { Form, Label, Input, SaveButton, BackToListButton, ButtonsWrapper }

@@ -5,6 +5,7 @@ import Authors from './views/Authors';
 import Publishers from './views/Publishers';
 import Books from './views/Books';
 import AddAuthor from './views/forms/AddAuthor';
+import EditAuthor from './views/forms/EditAuthor';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/autorzy/dodaj-nowego-autora">
             <AddAuthor/>
+          </Route>
+          <Route path="/autorzy/etytuj-dane-autora">
+            <EditAuthor/>
           </Route>
           <Route path="/wydawnictwa">
             <Publishers/>
