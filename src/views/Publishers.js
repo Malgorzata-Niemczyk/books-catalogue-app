@@ -18,7 +18,10 @@ const Publishers = () => {
                 let response = await fetch(url);
                 response = await response.json();
                 const publishersData = Object.keys(response).map(key => ({id: key, ...response[key]}));
-                dispatch({ type: 'SET_PUBLISHERS', payload: publishersData});
+
+                const sortedData = publishersData.sort((a, b) => (a.name > b.name) ? 1 : (b.name > a.name) ? -1 : 0);
+
+                dispatch({ type: 'SET_PUBLISHERS', payload: sortedData});
                 setIsLoading(false);
                 setErrorMessage(false);
             } catch (error) {
