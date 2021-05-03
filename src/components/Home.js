@@ -13,7 +13,7 @@ const Container = styled.main`
         box-shadow: 0 0 30px black;
         background-color: white;
 
-        @media screen and (max-width: 615px) {
+        @media screen and (max-width: 1000px) {
             max-width: 90%;
         }
     `
