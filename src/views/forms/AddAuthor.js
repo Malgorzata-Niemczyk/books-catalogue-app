@@ -1,9 +1,9 @@
 import { useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { AuthorsContext } from '../../store/AuthorsStore';
 
 import { Container } from "../../components/Home";
-import { Form, Label, Input } from '../../styled-components/styled-form';
+import { Form, Label, Input, BackToListButton, ButtonsWrapper } from '../../styled-components/styled-form';
 import { AddButton } from '../../styled-components/styled-table';
 
 const AddAuthor = () => {
@@ -56,7 +56,12 @@ const AddAuthor = () => {
                     placeholder="Wpisz imię autora" 
                     required 
                 />
-                <AddButton type="submit">Dodaj</AddButton>
+                <ButtonsWrapper>
+                    <AddButton type="submit">Dodaj</AddButton>
+                    <Link to="/autorzy">
+                            <BackToListButton>Powrót do Listy</BackToListButton>
+                    </Link>
+                </ButtonsWrapper>
             </Form>
         </Container>
      );
