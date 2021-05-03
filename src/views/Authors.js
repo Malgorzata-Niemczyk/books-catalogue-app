@@ -18,7 +18,21 @@ const Authors = () => {
                 let response = await fetch(url);
                 response = await response.json();
                 const authorsData = Object.keys(response).map(key => ({id: key, ...response[key]}));
-                dispatch({ type: 'SET_AUTHORS', payload: authorsData});
+                
+                const sortedData = authorsData.sort((a, b) => {
+                    let itemA = a.lastName.toLowerCase();
+                    let itemB = b.lastName.toLowerCase();
+                
+                    if (itemA < itemB) {
+                        return -1;
+                    }
+                    if (itemA > itemB) {
+                        return 1;
+                    }
+                    return 0;
+                });
+
+                dispatch({ type: 'SET_AUTHORS', payload: sortedData});
                 setIsLoading(false);
                 setErrorMessage(false);
             } catch (error) {
