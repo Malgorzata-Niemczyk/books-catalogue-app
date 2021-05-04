@@ -80,7 +80,15 @@ const Authors = () => {
                                         </EditButton>
                                     </Link>
                                 </TableData>
-                                <TableData><RemoveButton onClick={() => handleRemoveAuthor(author.id)}>Usuń</RemoveButton></TableData>
+                                <TableData>
+                                    <RemoveButton 
+                                        onClick={() => {
+                                            if (window.confirm("Czy na pewno chcesz usunąć ten wpis?")) {
+                                                handleRemoveAuthor(author.id);
+                                            }
+                                            }}
+                                    >Usuń</RemoveButton>
+                                </TableData>
                             </TableRow>
                         )} 
                     )}
