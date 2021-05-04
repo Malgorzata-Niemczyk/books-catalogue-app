@@ -12,8 +12,8 @@ const AddBook = () => {
     const [title, setTitle] = useState('');
     const [isbn, setIsbnNumber] = useState('');
     const [publishmentYear, setPublishmentYear] = useState('');
-    // const [authorId, setAuthorId] = useState('');
-    // const [publisherId, setPublisherId] = useState('');
+    const [author, setAuthor] = useState('');
+    const [publisher, setPublisher] = useState('');
 
     const [state, dispatch] = useContext(BooksContext);
     const url = 'http://139.162.147.107:3493/books';
@@ -25,27 +25,34 @@ const AddBook = () => {
             title,
             isbn,
             publishmentYear,
-            // publisherId,
-            // authorId,
+            publisher,
+            author,
         };
 
         await fetch(url, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(newBook)
-        }).then(() => {
-            console.log('New book added');
-            dispatch({ type: 'ADD_BOOK', payload: newBook});
-            history.push('/ksiazki');
-        })
+        }).then((res) => {
+            if (res.ok === false) {
+                throw Error('Dodanie wpisu nie powiodło się :(')
+            } else {
+                dispatch({ type: 'ADD_BOOK', payload: newBook});
+                alert('Dodano wpis pomyślnie :)');
+                history.push('/ksiazki');
+            }
+        }).catch(error => {
+            dispatch({ type: 'SET_ERROR', payload: error.message});
+            alert(error.message);
+        });
 
-        console.log(newBook);
+        // console.log(newBook);
 
         setTitle('');
         setIsbnNumber('');
         setPublishmentYear('');
-        // setAuthorId('');
-        // setPublisherId('');
+        setAuthor('');
+        setPublisher('');
     };
 
     return ( 
@@ -60,15 +67,15 @@ const AddBook = () => {
                     placeholder="Wpisz tytuł książki" 
                     required 
                 />
-                {/* <Label htmlFor="firstName">Autor:</Label>
+                <Label htmlFor="firstName">Autor:</Label>
                 <Select
-                    value={authorId}
-                    onChange={event => setAuthorId(event.target.value)}
+                    value={author}
+                    onChange={event => setAuthor(event.target.value)}
                 >
                     <option value="John Smith">John Smith</option>
                     <option value="Alex Johnson">Alex Johnson</option>
                     <option value="Isaac Craig">Isaac Craig</option>
-                </Select> */}
+                </Select>
                 <Label htmlFor="firstName">ISBN:</Label>
                 <Input 
                     type="number" 
@@ -77,15 +84,15 @@ const AddBook = () => {
                     placeholder="Wpisz numer ISBN"
                     required 
                 />
-                {/* <Label htmlFor="firstName">Wydawnictwo:</Label>
+                <Label htmlFor="firstName">Wydawnictwo:</Label>
                 <Select
-                    value={publisherId}
-                    onChange={event => setPublisherId(event.target.value)}
+                    value={publisher}
+                    onChange={event => setPublisher(event.target.value)}
                 >
                     <option value="Example Publisher 1">Example Publisher 1</option>
                     <option value="Example Publisher 2">Example Publisher 2</option>
                     <option value="Example Publisher 3">Example Publisher 3</option>
-                </Select> */}
+                </Select>
                 <Label htmlFor="firstName">Rok Wydania:</Label>
                 <Input 
                     type="number" 

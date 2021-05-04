@@ -14,6 +14,8 @@ const EditBook = () => {
     const [title, setTitle] = useState('');
     const [isbn, setIsbn] = useState('');
     const [publishmentYear, setPublishmentYear] = useState('');
+    const [author, setAuthor] = useState('');
+    const [publisher, setPublisher] = useState('');
 
     const [state, dispatch] = useContext(BooksContext);
 
@@ -36,11 +38,18 @@ const EditBook = () => {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(editedBook)
-        }).then(() => {
-            console.log('New book added');
-            dispatch({ type: 'ADD_BOOK', payload: editedBook});
-            history.push('/ksiazki');
-        }).catch(error => console.log(error))
+        }).then((res) => {
+            if (res.ok === false) {
+                throw Error('Zapisanie wpisu nie powiodło się :(')
+            } else {
+                console.log('Zapisano wpis pomyślnie :)');
+                dispatch({ type: 'ADD_BOOK', payload: editedBook});
+                history.push('/ksiazki');
+            }
+        }).catch(error => {
+            dispatch({ type: 'SET_ERROR', payload: error.message});
+            alert(error.message);
+        });
     }
 
     const handleSave = (event) => {
@@ -49,7 +58,9 @@ const EditBook = () => {
         let editedBook = {
             title,
             isbn,
-            publishmentYear
+            publishmentYear,
+            publisher,
+            author,
         };
 
         editBookDetails(editedBook);
@@ -73,15 +84,15 @@ const EditBook = () => {
                     placeholder="Wpisz nowy tytuł książki" 
                     required 
                 />
-                {/* <Label htmlFor="firstName">Autor:</Label>
+                <Label htmlFor="firstName">Autor:</Label>
                 <Select
-                    value={authorId}
-                    onChange={event => setAuthorId(event.target.value)}
+                    value={author}
+                    onChange={event => setAuthor(event.target.value)}
                 >
                     <option value="John Smith">John Smith</option>
                     <option value="Alex Johnson">Alex Johnson</option>
                     <option value="Isaac Craig">Isaac Craig</option>
-                </Select> */}
+                </Select>
                 <Label htmlFor="firstName">ISBN:</Label>
                 <Input 
                     type="number" 
@@ -90,15 +101,15 @@ const EditBook = () => {
                     placeholder="Wpisz nowy numer ISBN"
                     required 
                 />
-                {/* <Label htmlFor="firstName">Wydawnictwo:</Label>
+                <Label htmlFor="firstName">Wydawnictwo:</Label>
                 <Select
-                    value={publisherId}
-                    onChange={event => setPublisherId(event.target.value)}
+                    value={publisher}
+                    onChange={event => setPublisher(event.target.value)}
                 >
                     <option value="Example Publisher 1">Example Publisher 1</option>
                     <option value="Example Publisher 2">Example Publisher 2</option>
                     <option value="Example Publisher 3">Example Publisher 3</option>
-                </Select> */}
+                </Select>
                 <Label htmlFor="firstName">Rok Wydania:</Label>
                 <Input 
                     type="number" 
