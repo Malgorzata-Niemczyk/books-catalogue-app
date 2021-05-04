@@ -34,6 +34,14 @@ const Books = () => {
         fetchBooks()
     }, [dispatch]);
 
+    const handleRemoveBook = async (id) => {
+        await fetch(`http://139.162.147.107:3493/books/${id}`, {
+            method: "DELETE"
+        }).then(() => {
+            dispatch({type: 'REMOVE_BOOK', payload: id})
+        })
+    }
+
     return ( 
         <Container>
             <h2>Książki</h2>
@@ -68,7 +76,13 @@ const Books = () => {
                                     </Link>
                                 </TableData>
                                 <TableData>
-                                    <RemoveButton>Usuń</RemoveButton>
+                                    <RemoveButton
+                                        onClick={() => {
+                                            if (window.confirm("Czy na pewno chcesz usunąć ten wpis?")) {
+                                                handleRemoveBook(book.id);
+                                            }
+                                        }}                                                                   
+                                    >Usuń</RemoveButton>
                                 </TableData>
                             </TableRow>
                         )} 
