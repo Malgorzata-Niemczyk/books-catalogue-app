@@ -26,8 +26,8 @@ const AddAuthor = () => {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(newAuthor)
         }).then(() => {
-            console.log('New author added');
             dispatch({ type: 'ADD_AUTHOR', payload: newAuthor});
+            console.log('New author added');
             history.push('/autorzy');
         })
 
