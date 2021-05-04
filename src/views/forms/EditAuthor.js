@@ -32,11 +32,18 @@ const EditAuthor = () => {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(editedAuthor)
-        }).then(() => {
-            console.log('New author added');
-            dispatch({ type: 'ADD_AUTHOR', payload: editedAuthor});
-            history.push('/autorzy');
-        }).catch(error => console.log(error))
+        }).then((res) => {
+            if (res.ok === false) {
+                throw Error('Zapisanie wpisu nie powiodło się :(')
+            } else {
+                dispatch({ type: 'ADD_AUTHOR', payload: editedAuthor});
+                alert('Zapisano wpis pomyślnie :)');
+                history.push('/autorzy');
+            }
+        }).catch(error => {
+            dispatch({ type: 'SET_ERROR', payload: error.message});
+            alert(error.message);
+        });
     }
 
     const handleSave = (event) => {

@@ -26,12 +26,19 @@ const AddPublishers = () => {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(newPublisher)
-        }).then(() => {
-            console.log('New publisher added');
-            dispatch({ type: 'ADD_PUBLISHERS', payload: newPublisher});
-            history.push('/wydawnictwa');
-        })
-
+        }).then((res) => {
+            if (res.ok === false) {
+                throw Error('Dodanie wpisu nie powiodło się :(')
+            } else {
+                dispatch({ type: 'ADD_PUBLISHERS', payload: newPublisher});
+                alert('Dodano wpis pomyślnie :)');
+                history.push('/wydawnictwa');
+            }
+        }).catch(error => {
+            dispatch({ type: 'SET_ERROR', payload: error.message});
+            alert(error.message);
+        });
+        
         setName('');
         setEstablishmentYear('');
     };

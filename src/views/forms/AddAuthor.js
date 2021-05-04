@@ -25,11 +25,18 @@ const AddAuthor = () => {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(newAuthor)
-        }).then(() => {
-            console.log('New author added');
-            dispatch({ type: 'ADD_AUTHOR', payload: newAuthor});
-            history.push('/autorzy');
-        })
+        }).then((res) => {
+            if (res.ok === false) {
+                throw Error('Dodanie wpisu nie powiodło się :(')
+            } else {
+                dispatch({ type: 'ADD_AUTHOR', payload: newAuthor});
+                alert('Dodano wpis pomyślnie :)');
+                history.push('/autorzy');
+            }
+        }).catch(error => {
+            dispatch({ type: 'SET_ERROR', payload: error.message});
+            alert(error.message);
+        });
 
         setLastName('');
         setFirstName('');

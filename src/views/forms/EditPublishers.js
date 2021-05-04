@@ -32,11 +32,18 @@ const EditPublishers = () => {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(editedPublisher)
-        }).then(() => {
-            console.log('New publisher added');
-            dispatch({ type: 'ADD_PUBLISHERS', payload: editedPublisher});
-            history.push('/wydawnictwa');
-        }).catch(error => console.log(error))
+        }).then((res) => {
+            if (res.ok === false) {
+                throw Error('Zapisanie wpisu nie powiodło się :(')
+            } else {
+                dispatch({ type: 'ADD_PUBLISHERS', payload: editedPublisher});
+                alert('Zapisano wpis pomyślnie :)');
+                history.push('/wydawnictwa');
+            }
+        }).catch(error => {
+            dispatch({ type: 'SET_ERROR', payload: error.message});
+            alert(error.message);
+        });
     }
 
     const handleSave = (event) => {
