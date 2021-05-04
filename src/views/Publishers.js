@@ -72,9 +72,10 @@ const Publishers = () => {
                                 <TableData>
                                     <RemoveButton 
                                         onClick={() => {
-                                            if (window.confirm("Czy na pewno chcesz usunąć ten wpis?"))
+                                            if (window.confirm("Czy na pewno chcesz usunąć ten wpis?")) {
                                                 handleRemovePublisher(publisher.id)
-                                            }}
+                                            }
+                                        }}
                                     >Usuń</RemoveButton>
                                 </TableData>
                             </TableRow>

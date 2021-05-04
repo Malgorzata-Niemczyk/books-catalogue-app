@@ -86,7 +86,7 @@ const Authors = () => {
                                             if (window.confirm("Czy na pewno chcesz usunąć ten wpis?")) {
                                                 handleRemoveAuthor(author.id);
                                             }
-                                            }}
+                                        }}
                                     >Usuń</RemoveButton>
                                 </TableData>
                             </TableRow>
